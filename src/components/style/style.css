@@ -1,11 +1,32 @@
 @import "modern-normalize.css";
 
 :root {
-  --backgroundColor: black;
-  --fontColor: white;
+  --backgroundColor: rgb(240, 234, 222);
+  --fontColor: black;
+  --accentColor: rgb(253, 157, 210);
 }
 
 body {
   background-color: var(--backgroundColor);
   color: var(--fontColor);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+header {
+  flex: none;
+  height: 3rem;
+  background-color: var(--accentColor);
+}
+
+main {
+  margin: auto;
+  width: 900px;
+}
+
+footer {
+  flex: none;
+  height: 2rem;
+  background-color: var(--accentColor);
 }
