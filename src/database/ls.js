@@ -1,5 +1,11 @@
-export function create(store, object) {
-  localStorage.setItem(store, JSON.stringify(object));
+export function create(storeName) {
+  localStorage.setItem(storeName, JSON.stringify([]));
+}
+
+export function add(storeName, object) {
+  const store = getStore(storeName);
+  store.push(object);
+  saveToLocalStorage(storeName, store);
 }
 
 export function read(storeName, id) {
