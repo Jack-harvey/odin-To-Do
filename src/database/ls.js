@@ -47,6 +47,12 @@ const getRecord = function (storeName, id) {
 
 const getStore = function (storeName) {
   let store = JSON.parse(localStorage.getItem(storeName));
+
+  if (!store) {
+    create(storeName);
+    store = JSON.parse(localStorage.getItem(storeName));
+  }
+
   return store;
 };
 
