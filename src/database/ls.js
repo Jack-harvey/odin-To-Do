@@ -69,3 +69,10 @@ const saveToLocalStorage = function (storeName, store) {
   localStorage.setItem(storeName, JSON.stringify(store));
   console.log("saved to local storage");
 };
+
+export const getListOfToDos = function (projectId) {
+  const store = getStore("todos");
+  let associatedTodos = store.filter((item) => item.projectId === projectId);
+  console.log(associatedTodos);
+  return associatedTodos;
+};
