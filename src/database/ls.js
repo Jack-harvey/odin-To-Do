@@ -117,7 +117,7 @@ const createFirstTimeData = function () {
   );
   const toDoForTest2 = todo(
     "fold the washing",
-    false,
+    true,
     "",
     "It can't live on the couch FOREVER",
     initialProject.id
@@ -127,4 +127,15 @@ const createFirstTimeData = function () {
   add("todos", toDoForTest1);
   add("todos", toDoForTest2);
   add("todos", toDoForTest3);
+};
+
+export const getCountOfAllTodosOnProject = function (projectId) {
+  const countOfTodosOnProject = getListOfToDos(projectId).length;
+  return countOfTodosOnProject;
+};
+
+export const getCountOfAllCompletedTodosOnProject = function (projectId) {
+  const todosOnProject = getListOfToDos(projectId);
+  const completedTodos = todosOnProject.filter((item) => item.completed === true);
+  return completedTodos.length;
 };
