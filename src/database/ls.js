@@ -1,3 +1,6 @@
+import { Project } from "../features/projects/scripts/project";
+import { todo } from "../features/toDos/scripts/todo";
+
 export function create(storeName) {
   localStorage.setItem(storeName, JSON.stringify([]));
 }
@@ -75,4 +78,53 @@ export const getListOfToDos = function (projectId) {
   let associatedTodos = store.filter((item) => item.projectId === projectId);
   console.log(associatedTodos);
   return associatedTodos;
+};
+
+export const checkIfLocalStorageDataExists = function () {
+  if (!JSON.parse(localStorage.getItem("projects")) && !JSON.parse(localStorage.getItem("todos"))) {
+    console.log("no data exists");
+    createFirstTimeData();
+    return;
+  }
+  console.log("data exists");
+  return;
+};
+
+const createFirstTimeData = function () {
+  create("projects");
+  const initialProject = new Project(
+    "Clean the house",
+    "The house needs to be cleaned every day",
+    "Do the dishes before bed because it makes you happy.",
+    "#0bd6a7"
+  );
+  add("projects", initialProject);
+
+  create("todos");
+  const toDoForTest0 = todo(
+    "Wash the dishes",
+    false,
+    "Don't forget the cup on your desk",
+    "",
+    initialProject.id
+  );
+  const toDoForTest1 = todo(
+    "put away all the  things",
+    false,
+    "Tidy up",
+    "everything has a home, if it doesn't then make one",
+    initialProject.id
+  );
+  const toDoForTest2 = todo(
+    "fold the washing",
+    false,
+    "",
+    "It can't live on the couch FOREVER",
+    initialProject.id
+  );
+  const toDoForTest3 = todo("Clean out the fridge", false, "", "", initialProject.id);
+  add("todos", toDoForTest0);
+  add("todos", toDoForTest1);
+  add("todos", toDoForTest2);
+  add("todos", toDoForTest3);
 };
