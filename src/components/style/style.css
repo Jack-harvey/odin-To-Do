@@ -1,7 +1,7 @@
 @import "modern-normalize.css";
 
 :root {
-  --backgroundColor: rgb(240, 234, 222);
+  --backgroundColor: rgb(240, 236, 233);
   --fontColor: black;
   --accentColor: rgb(253, 157, 210);
 }
@@ -23,10 +23,55 @@ header {
 main {
   margin: auto;
   width: 900px;
+  max-width: 900px;
+  margin: auto;
 }
 
 footer {
   flex: none;
   height: 2rem;
   background-color: var(--accentColor);
+}
+
+.project-card-area {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.project-card {
+  background-color: var(--accentColor);
+  border-radius: 20px;
+  max-width: 20rem;
+  margin: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.project-card:hover {
+  background-color: blueviolet;
+  cursor: pointer;
+}
+
+.project-title {
+  border-bottom: black solid 1px;
+  background-color: aliceblue;
+  padding: 1rem 1rem 0rem 1rem;
+  margin-bottom: 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.project-description {
+  margin: 0rem 1rem;
+}
+
+.project-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 1rem 1rem 0.2rem 1rem;
+  background-color: aliceblue;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
