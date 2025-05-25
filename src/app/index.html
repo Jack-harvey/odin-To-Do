@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Gonna - Projects</title>
   </head>
   <body>
     <header>
@@ -14,7 +14,7 @@
       </nav>
     </header>
     <main>
-      <div class="project-card-area"></div>
+      <div class="content"></div>
     </main>
     <footer>
       <span>Gonna - Jack Harvey 2025</span>
@@ -23,20 +23,36 @@
 </html>
 
 <template id="projectCardTemplate">
-  <div class="project-card">
-    <div class="project-title">
-      <span></span>
-    </div>
-    <div class="project-description">
-      <p></p>
-    </div>
-    <div class="project-info">
-      <div class="created-date">
+  <div class="project-card-area">
+    <div class="project-card">
+      <div class="project-title">
         <span></span>
       </div>
-      <div class="completion-status">
-        <span> </span>
+      <div class="project-description">
+        <p></p>
       </div>
+      <div class="project-info">
+        <div class="created-date">
+          <span></span>
+        </div>
+        <div class="completion-status">
+          <span> </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template id="listOfTodosTemplate">
+  <div class="todo-card">
+    <div class="todo-main">
+      <div class="complete"></div>
+      <div class="title"></div>
+      <div class="date"></div>
+    </div>
+    <div class="todo-sub">
+      <div class="description"></div>
+      <div class="notes"></div>
     </div>
   </div>
 </template>
