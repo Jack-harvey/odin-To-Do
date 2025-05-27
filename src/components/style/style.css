@@ -1,9 +1,9 @@
 @import "modern-normalize.css";
 
 :root {
-  --backgroundColor: rgb(240, 236, 233);
-  --fontColor: black;
-  --accentColor: rgb(253, 157, 210);
+  --backgroundColor: rgb(55, 51, 61);
+  --fontColor: rgb(196, 198, 199);
+  --accentColor: rgb(158, 73, 16);
 }
 
 body {
@@ -23,7 +23,6 @@ header {
 main {
   margin: auto;
   width: 900px;
-  max-width: 900px;
   margin: auto;
 }
 
@@ -35,7 +34,7 @@ footer {
 
 .project-card-area {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .project-card {
@@ -74,4 +73,31 @@ footer {
   background-color: aliceblue;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+
+.todo-cards {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.todo-card {
+  width: 60ch;
+  margin-bottom: 2rem;
+  border: 2px pink solid;
+  border-radius: 15px;
+
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr;
+}
+
+.todo-main {
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr;
+  grid-area: 1/1/1/4;
+  text-align: center;
+
+  .title {
+    font-weight: bold;
+    font-size: 2rem;
+  }
 }
