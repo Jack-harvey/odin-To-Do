@@ -1,4 +1,4 @@
-export const todo = function (name, completed, description, notes, projectId) {
+export const todo = function (name, completed, description, notes, dueDate, projectId) {
   const id = crypto.randomUUID();
   return {
     id,
@@ -6,6 +6,7 @@ export const todo = function (name, completed, description, notes, projectId) {
     completed,
     description,
     notes,
+    dueDate,
     projectId,
   };
 };
