@@ -30,6 +30,9 @@ export const createTodoList = function (projectId) {
     descriptionEl.firstElementChild.textContent = todo.description;
     notesEl.firstElementChild.textContent = todo.notes;
 
+    const completeElCheckbox = todoCheckmarkElement(todo.completed);
+    completeEl.appendChild(completeElCheckbox);
+
     if (todo.complete) {
       //the box is checked, the class 'complete' is added
     }
@@ -38,4 +41,11 @@ export const createTodoList = function (projectId) {
   });
 
   return AllTemplates;
+};
+
+const todoCheckmarkElement = function (isComplete) {
+  const completeEl = document.createElement("i");
+  completeEl.classList.add("fa-regular");
+  isComplete ? completeEl.classList.add("fa-square-check") : completeEl.classList.add("fa-square");
+  return completeEl;
 };

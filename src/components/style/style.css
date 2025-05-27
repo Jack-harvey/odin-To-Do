@@ -117,3 +117,7 @@ footer {
     text-align: start;
   }
 }
+
+i.fa-regular {
+  font-size: 1.8rem;
+}
