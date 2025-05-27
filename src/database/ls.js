@@ -104,8 +104,9 @@ const createFirstTimeData = function () {
   const toDoForTest0 = todo(
     "Wash the dishes",
     false,
+    "Wash the dishes using soap and water at the sink",
     "Don't forget the cup on your desk",
-    "",
+    "1/12/25",
     initialProject.id
   );
   const toDoForTest1 = todo(
@@ -113,16 +114,18 @@ const createFirstTimeData = function () {
     false,
     "Tidy up",
     "everything has a home, if it doesn't then make one",
+    "1/1/93",
     initialProject.id
   );
   const toDoForTest2 = todo(
     "fold the washing",
     true,
-    "",
+    "Fold it like Marie Kondo!",
     "It can't live on the couch FOREVER",
+    "30/5/25",
     initialProject.id
   );
-  const toDoForTest3 = todo("Clean out the fridge", false, "", "", initialProject.id);
+  const toDoForTest3 = todo("Clean out the fridge", false, "", "", "30/5/25", initialProject.id);
   add("todos", toDoForTest0);
   add("todos", toDoForTest1);
   add("todos", toDoForTest2);

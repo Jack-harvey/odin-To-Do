@@ -1,6 +1,7 @@
 import "../components/style/style.css";
 import { PubSub } from "../api/pubsub";
 import { createProjectCard } from "../features/projects/scripts/renderProjects";
+import { renderTodos } from "../features/toDos/scripts/renderTodos";
 import {
   create,
   read,
@@ -22,5 +23,4 @@ console.log(getCountOfAllCompletedTodosOnProject("46bb5ae4-dba6-41b1-b28e-e83b0c
 const proj = JSON.parse(localStorage.getItem("projects"))[0];
 
 const x = createProjectCard(proj);
-
-document.querySelector(".project-card-area").appendChild(x);
+renderTodos("9b1c9adc-dfb0-43aa-b525-1a3f23de74eb");
