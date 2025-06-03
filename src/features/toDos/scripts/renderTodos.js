@@ -3,7 +3,7 @@ import { clearContent } from "../../../components/scripts/html";
 import { todo } from "./todo";
 
 export const renderTodos = function (projectId) {
-  clearContent();
+  clearContent(".content");
   const content = document.querySelector(".content");
   const todoCardSectionEl = document.createElement("div");
   todoCardSectionEl.classList.add("todo-cards");
