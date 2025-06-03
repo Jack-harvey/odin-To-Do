@@ -1,15 +1,25 @@
-export const createProjectCard = function (project) {
-  const template = document.querySelector("#projectCardTemplate").content.cloneNode(true);
-  const titleEl = template.querySelector(".project-title");
-  const descriptionEl = template.querySelector(".project-description");
-  const dateEl = template.querySelector(".created-date");
-  const progressEl = template.querySelector(".completion-status");
+export const createProjectCards = function (projects) {
+  const content = document.querySelector(".content");
+  const cardArea = document.createElement("div");
+  cardArea.classList.add("project-card-area");
 
-  titleEl.firstElementChild.textContent = project.title;
-  if (project.description) {
-    descriptionEl.firstElementChild.textContent = project.description;
-  }
-  dateEl.firstElementChild.textContent = project.createdDate;
-  progressEl.firstElementChild.textContent = "888/888";
-  return template;
+  projects.forEach((project) => {
+    const template = document.querySelector("#projectCardTemplate").content.cloneNode(true);
+    const titleEl = template.querySelector(".project-title");
+    const descriptionEl = template.querySelector(".project-description");
+    const dateEl = template.querySelector(".created-date");
+    const progressEl = template.querySelector(".completion-status");
+
+    titleEl.firstElementChild.textContent = project.title;
+    if (project.description) {
+      descriptionEl.firstElementChild.textContent = project.description;
+    }
+    dateEl.firstElementChild.textContent = project.createdDate;
+    progressEl.firstElementChild.textContent = "888/888";
+
+    titleEl.dataset.id = project.id;
+    cardArea.append(template);
+  });
+
+  content.append(cardArea);
 };
