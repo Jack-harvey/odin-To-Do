@@ -20,6 +20,21 @@ header {
   background-color: var(--accentColor);
 }
 
+aside {
+  display: grid;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  height: 300px;
+  grid-template-rows: 4rem 1rem;
+
+  h1 {
+    font-size: 4rem;
+    color: var(--accentColor);
+  }
+}
+
 main {
   margin: auto;
   width: 900px;
@@ -78,6 +93,7 @@ footer {
 .todo-cards {
   display: grid;
   grid-template-rows: 1fr;
+  justify-content: center;
 }
 
 .todo-card {
