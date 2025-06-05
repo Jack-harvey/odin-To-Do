@@ -17,8 +17,8 @@ export const createProjectCards = function (projects) {
     dateEl.firstElementChild.textContent = project.createdDate;
     progressEl.firstElementChild.textContent = "888/888";
 
-    titleEl.dataset.id = project.id;
     cardArea.append(template);
+    cardArea.lastElementChild.dataset.id = project.id;
   });
 
   content.append(cardArea);
