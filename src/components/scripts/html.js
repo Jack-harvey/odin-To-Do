@@ -1,5 +1,6 @@
 import { checkIfLocalStorageDataExists, getAllProjects } from "../../database/ls";
 import { createProjectCards } from "../../features/projects/scripts/renderProjects";
+import { renderTodos } from "../../features/toDos/scripts/renderTodos";
 
 export const clearContent = function (querySelector) {
   const content = document.querySelector(querySelector);
@@ -31,6 +32,7 @@ export const initialLoad = function () {
 export const userOpensProject = function () {
   const content = document.querySelector(".project-card");
   content.addEventListener("click", (e) => {
-    console.log(e);
+    const projectId = e.target.closest("[data-id]").dataset.id;
+    renderTodos(projectId);
   });
 };
