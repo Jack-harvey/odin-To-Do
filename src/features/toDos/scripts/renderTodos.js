@@ -1,4 +1,4 @@
-import { getListOfToDos } from "../../../database/ls";
+import { getListOfToDos, getProjectDetails } from "../../../database/ls";
 import { clearContent } from "../../../components/scripts/html";
 import { todo } from "./todo";
 
@@ -11,6 +11,11 @@ export const renderTodos = function (projectId) {
   const allTemplates = createTodoList(projectId);
   todoCardSectionEl.append(...allTemplates);
   content.append(todoCardSectionEl);
+
+  const project = getProjectDetails(projectId);
+  const projectName = project.title;
+  const projectDescription = project.description;
+  changeBannerText(projectName, projectDescription);
 };
 
 export const createTodoList = function (projectId) {
@@ -43,9 +48,21 @@ export const createTodoList = function (projectId) {
   return AllTemplates;
 };
 
+const changeBannerText = function (mainText, subtext) {
+  const headingEl = document.querySelector("aside h1");
+  const subtextEl = document.querySelector("aside p");
+
+  headingEl.textContent = mainText;
+  subtextEl.textContent = subtext;
+};
+
 const todoCheckmarkElement = function (isComplete) {
   const completeEl = document.createElement("i");
   completeEl.classList.add("fa-regular");
   isComplete ? completeEl.classList.add("fa-square-check") : completeEl.classList.add("fa-square");
   return completeEl;
 };
+
+//click on todos and complete them
+
+//click on todos and toggle expand them

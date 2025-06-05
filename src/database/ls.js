@@ -146,3 +146,9 @@ export const getCountOfAllCompletedTodosOnProject = function (projectId) {
 export const getAllProjects = function () {
   return getStore("projects");
 };
+
+export const getProjectDetails = function (projectId) {
+  const projects = getStore("projects");
+  const project = projects.filter((project) => project.id === projectId);
+  return project[0];
+};
