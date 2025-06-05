@@ -1,3 +1,8 @@
+import {
+  getCountOfAllCompletedTodosOnProject,
+  getCountOfAllTodosOnProject,
+} from "../../../database/ls";
+
 export const createProjectCards = function (projects) {
   const content = document.querySelector(".content");
   const cardArea = document.createElement("div");
@@ -9,17 +14,26 @@ export const createProjectCards = function (projects) {
     const descriptionEl = template.querySelector(".project-description");
     const dateEl = template.querySelector(".created-date");
     const progressEl = template.querySelector(".completion-status");
+    const progressValue = calculateProgress(project.id);
 
     titleEl.firstElementChild.textContent = project.title;
     if (project.description) {
       descriptionEl.firstElementChild.textContent = project.description;
     }
     dateEl.firstElementChild.textContent = project.createdDate;
-    progressEl.firstElementChild.textContent = "888/888";
+    progressEl.firstElementChild.textContent = progressValue;
 
     cardArea.append(template);
     cardArea.lastElementChild.dataset.id = project.id;
   });
 
   content.append(cardArea);
+};
+
+const calculateProgress = function (projectId) {
+  const completedTodos = getCountOfAllCompletedTodosOnProject(projectId);
+  const totalTodos = getCountOfAllTodosOnProject(projectId);
+
+  const progressValue = `${completedTodos}/${totalTodos}`;
+  return progressValue;
 };
