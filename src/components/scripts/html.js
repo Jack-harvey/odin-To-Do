@@ -27,3 +27,10 @@ export const initialLoad = function () {
   //display data
   //set up event listeners
 };
+
+export const userOpensProject = function () {
+  const content = document.querySelector(".project-card");
+  content.addEventListener("click", (e) => {
+    console.log(e);
+  });
+};

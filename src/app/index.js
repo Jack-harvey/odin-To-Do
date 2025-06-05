@@ -1,5 +1,8 @@
 import "../components/style/style.css";
 
-import { initialLoad } from "../components/scripts/html";
+import { initialLoad, userOpensProject } from "../components/scripts/html";
 
-initialLoad();
+document.addEventListener("DOMContentLoaded", () => {
+  initialLoad();
+  userOpensProject();
+});
