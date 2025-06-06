@@ -15,6 +15,7 @@ export function read(storeName, id) {
   const record = getRecord(storeName, id);
   console.log("ls read");
   console.log(record);
+  return record[0];
 }
 
 export function update(storeName, id, newRecord) {

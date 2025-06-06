@@ -1,4 +1,4 @@
-import { getListOfToDos, getProjectDetails, read } from "../../../database/ls";
+import { getListOfToDos, getProjectDetails, read, update } from "../../../database/ls";
 import { clearContent } from "../../../components/scripts/html";
 import { todo } from "./todo";
 
@@ -69,6 +69,12 @@ const todoCheckmarkElement = function (isComplete) {
   return completeEl;
 };
 
+const toggleCheckMarkElement = function (target, isComplete) {
+  target.classList.remove("fa-square-check");
+  target.classList.remove("fa-square");
+  isComplete ? target.classList.add("fa-square-check") : target.classList.add("fa-square");
+};
+
 //click on todos and complete them
 const toggleTodoCompletion = function () {
   const contentEl = document.querySelector(".content");
@@ -78,7 +84,9 @@ const toggleTodoCompletion = function () {
       const todoId = e.target.closest("[data-id]").dataset.id;
       //get current val, invert it, save it, apply/remove tick
       const record = read("todos", todoId);
-      console.log(record);
+      record.completed = !record.completed;
+      update("todos", record.id, record);
+      toggleCheckMarkElement(e.target, record.completed);
     }
   });
 };
