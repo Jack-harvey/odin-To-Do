@@ -1,4 +1,4 @@
-import { getListOfToDos, getProjectDetails } from "../../../database/ls";
+import { getListOfToDos, getProjectDetails, read } from "../../../database/ls";
 import { clearContent } from "../../../components/scripts/html";
 import { todo } from "./todo";
 
@@ -16,11 +16,13 @@ export const renderTodos = function (projectId) {
   const projectName = project.title;
   const projectDescription = project.description;
   changeBannerText(projectName, projectDescription);
+
+  toggleTodoCompletion();
 };
 
 export const createTodoList = function (projectId) {
   const allTodos = getListOfToDos(projectId);
-  const AllTemplates = [];
+  const allTemplates = [];
 
   allTodos.forEach((todo) => {
     const template = document.querySelector("#listOfTodosTemplate").content.cloneNode(true);
@@ -42,10 +44,14 @@ export const createTodoList = function (projectId) {
       //the box is checked, the class 'complete' is added
     }
 
-    AllTemplates.push(template);
+    allTemplates.push(template);
+
+    const x = allTemplates.length - 1;
+
+    allTemplates[x].lastElementChild.dataset.id = todo.id;
   });
 
-  return AllTemplates;
+  return allTemplates;
 };
 
 const changeBannerText = function (mainText, subtext) {
@@ -64,5 +70,17 @@ const todoCheckmarkElement = function (isComplete) {
 };
 
 //click on todos and complete them
+const toggleTodoCompletion = function () {
+  const contentEl = document.querySelector(".content");
+  contentEl.addEventListener("click", (e) => {
+    if (e.target.localName == "i") {
+      console.log(e);
+      const todoId = e.target.closest("[data-id]").dataset.id;
+      //get current val, invert it, save it, apply/remove tick
+      const record = read("todos", todoId);
+      console.log(record);
+    }
+  });
+};
 
 //click on todos and toggle expand them
