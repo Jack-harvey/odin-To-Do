@@ -30,12 +30,12 @@ export const createTodoList = function (projectId) {
     const titleEl = template.querySelector(".title");
     const dateEl = template.querySelector(".date");
     const descriptionEl = template.querySelector(".description");
-    const notesEl = template.querySelector(".notes");
+    // const notesEl = template.querySelector(".notes");
 
     titleEl.firstElementChild.textContent = todo.name;
     dateEl.firstElementChild.textContent = todo.dueDate;
     descriptionEl.firstElementChild.textContent = todo.description;
-    notesEl.firstElementChild.textContent = todo.notes;
+    // notesEl.firstElementChild.textContent = todo.notes;
 
     const completeElCheckbox = todoCheckmarkElement(todo.completed);
     completeEl.appendChild(completeElCheckbox);
