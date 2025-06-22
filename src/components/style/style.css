@@ -1,9 +1,12 @@
 @import "modern-normalize.css";
 
 :root {
-  --backgroundColor: rgb(55, 51, 61);
-  --fontColor: rgb(196, 198, 199);
-  --accentColor: rgb(158, 73, 16);
+  --backgroundColor: #303446;
+  --fontColor: #c6d0f5;
+  --accentColor: #f4b8e4;
+
+  --backgroundColor2: #292c3c;
+  --backgroundColor3: #232634;
 }
 
 body {
@@ -12,6 +15,10 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+}
+
+nav {
+  color: var(--backgroundColor);
 }
 
 header {
@@ -53,7 +60,7 @@ footer {
 }
 
 .project-card {
-  background-color: var(--accentColor);
+  background-color: var(--backgroundColor2);
   border-radius: 20px;
   max-width: 20rem;
   margin: 1rem;
@@ -61,13 +68,15 @@ footer {
 }
 
 .project-card:hover {
-  background-color: blueviolet;
+  .project-title {
+    color: var(--accentColor);
+  }
   cursor: pointer;
 }
 
 .project-title {
   border-bottom: black solid 1px;
-  background-color: aliceblue;
+  background-color: var(--backgroundColor3);
   padding: 1rem 1rem 0rem 1rem;
   margin-bottom: 1rem;
   border-top-left-radius: 10px;
@@ -85,7 +94,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 1rem 1rem 0.2rem 1rem;
-  background-color: aliceblue;
+  background-color: var(--backgroundColor3);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -97,40 +106,52 @@ footer {
 }
 
 .todo-card {
+  background-color: var(--backgroundColor2);
   width: 60ch;
   margin-bottom: 2rem;
-  border: 2px pink solid;
+  border: 2px var(--accentColor) solid;
   border-radius: 15px;
-
-  display: grid;
-  grid-template-columns: 1fr 5fr 2fr;
-
   text-align: center;
+  padding: 1rem 0rem 1rem 0rem;
 
+  .card-main {
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+    border-bottom: 3px solid var(--fontColor);
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
   .complete {
     grid-area: 1/1/1/2;
+  }
+  .complete:hover {
+    cursor: pointer;
   }
   .title {
     grid-area: 1/2/1/3;
     font-weight: bold;
     font-size: 1.5rem;
-    border-bottom: 3px solid var(--fontColor);
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
   }
   .date {
     grid-area: 1/3/1/4;
   }
   .description {
-    grid-area: 2/2/2/3;
-    border-bottom: 1px solid var(--fontColor);
     margin-bottom: 0.5rem;
     text-align: start;
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
+  }
+  .description > span {
+    grid-area: 1/2/1/3;
   }
   .notes {
-    grid-area: 3/2/3/3;
+    display: grid;
+    grid-template-columns: 1fr 5fr 2fr;
     font-style: italic;
     text-align: start;
+  }
+  .notes > span {
+    grid-area: 1/2/1/3;
   }
 }
 
