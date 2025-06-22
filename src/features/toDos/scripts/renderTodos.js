@@ -87,6 +87,10 @@ const toggleTodoCompletion = function () {
       record.completed = !record.completed;
       update("todos", record.id, record);
       toggleCheckMarkElement(e.target, record.completed);
+      return;
+    }
+    if (e.target.closest(".todo-card")) {
+      e.target.closest(".todo-card").classList.toggle("mini");
     }
   });
 };
