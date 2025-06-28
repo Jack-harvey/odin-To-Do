@@ -1,6 +1,7 @@
 import { getListOfToDos, getProjectDetails, read, update } from "../../../database/ls";
 import { clearContent } from "../../../components/scripts/html";
 import { todo } from "./todo";
+import { buttonBar } from "../../../components/scripts/buttonBar";
 
 export const renderTodos = function (projectId) {
   clearContent(".content");
@@ -16,6 +17,8 @@ export const renderTodos = function (projectId) {
   const projectName = project.title;
   const projectDescription = project.description;
   changeBannerText(projectName, projectDescription);
+
+  buttonBar("todo");
 
   toggleTodoCompletion();
 };

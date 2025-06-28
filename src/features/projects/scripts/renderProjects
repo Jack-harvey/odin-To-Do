@@ -2,6 +2,7 @@ import {
   getCountOfAllCompletedTodosOnProject,
   getCountOfAllTodosOnProject,
 } from "../../../database/ls";
+import { buttonBar } from "../../../components/scripts/buttonBar";
 
 export const createProjectCards = function (projects) {
   const content = document.querySelector(".content");
@@ -28,6 +29,8 @@ export const createProjectCards = function (projects) {
   });
 
   content.append(cardArea);
+
+  buttonBar("project");
 };
 
 const calculateProgress = function (projectId) {
