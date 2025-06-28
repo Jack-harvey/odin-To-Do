@@ -4,6 +4,7 @@ import {
 } from "../../../database/ls";
 import { buttonBar } from "../../../components/scripts/buttonBar";
 import { clearContent, changeBannerText } from "../../../components/scripts/html";
+import { createProjectForm } from "./form";
 
 export const createProjectCards = function (projects) {
   clearContent(".content");
@@ -34,6 +35,7 @@ export const createProjectCards = function (projects) {
   content.append(cardArea);
 
   buttonBar("project");
+  createProjectForm();
 };
 
 const calculateProgress = function (projectId) {
