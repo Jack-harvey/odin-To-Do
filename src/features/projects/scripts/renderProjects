@@ -3,8 +3,11 @@ import {
   getCountOfAllTodosOnProject,
 } from "../../../database/ls";
 import { buttonBar } from "../../../components/scripts/buttonBar";
+import { clearContent, changeBannerText } from "../../../components/scripts/html";
 
 export const createProjectCards = function (projects) {
+  clearContent(".content");
+  changeBannerText("Gonna", "I'm gonna do it!");
   const content = document.querySelector(".content");
   const cardArea = document.createElement("div");
   cardArea.classList.add("project-card-area");

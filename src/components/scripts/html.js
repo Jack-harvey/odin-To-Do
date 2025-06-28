@@ -36,3 +36,11 @@ export const userOpensProject = function () {
     renderTodos(projectId);
   });
 };
+
+export const changeBannerText = function (mainText, subtext) {
+  const headingEl = document.querySelector("aside h1");
+  const subtextEl = document.querySelector("aside p");
+
+  headingEl.textContent = mainText;
+  subtextEl.textContent = subtext;
+};

@@ -1,5 +1,5 @@
 import { getListOfToDos, getProjectDetails, read, update } from "../../../database/ls";
-import { clearContent } from "../../../components/scripts/html";
+import { clearContent, changeBannerText } from "../../../components/scripts/html";
 import { todo } from "./todo";
 import { buttonBar } from "../../../components/scripts/buttonBar";
 
@@ -57,13 +57,13 @@ export const createTodoList = function (projectId) {
   return allTemplates;
 };
 
-const changeBannerText = function (mainText, subtext) {
-  const headingEl = document.querySelector("aside h1");
-  const subtextEl = document.querySelector("aside p");
+// const changeBannerText = function (mainText, subtext) {
+//   const headingEl = document.querySelector("aside h1");
+//   const subtextEl = document.querySelector("aside p");
 
-  headingEl.textContent = mainText;
-  subtextEl.textContent = subtext;
-};
+//   headingEl.textContent = mainText;
+//   subtextEl.textContent = subtext;
+// };
 
 const todoCheckmarkElement = function (isComplete) {
   const completeEl = document.createElement("i");
