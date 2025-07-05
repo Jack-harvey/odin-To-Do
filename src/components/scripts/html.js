@@ -1,5 +1,5 @@
 import { checkIfLocalStorageDataExists, getAllProjects } from "../../database/ls";
-import { createProjectCards } from "../../features/projects/scripts/renderProjects";
+import { createProjectCards } from "../../features/projects/scripts/renderProjects.js";
 import { renderTodos } from "../../features/toDos/scripts/renderTodos";
 
 export const clearContent = function (querySelector) {

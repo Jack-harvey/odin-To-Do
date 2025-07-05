@@ -1,6 +1,10 @@
+import { createFormEventListener } from "../../../components/scripts/forms";
+import { clearContent } from "../../../components/scripts/html";
+
 const dialogEl = document.querySelector("dialog");
 
 export const createProjectForm = function () {
+  clearContent("dialog");
   dialogEl.innerHTML = `
   <div class="new-project">
     <div>
@@ -36,11 +40,10 @@ export const createProjectForm = function () {
           <label for="color">Colour</label>
           <input type="color" name="color" id="color" required />
         </div>
+        <button type="submit">Add Project</button>
       </form>
-    </div>
-    <div>
-      <button type="submit">Add Project</button>
     </div>
   </div>
 `;
+  createFormEventListener("#newProjectForm");
 };

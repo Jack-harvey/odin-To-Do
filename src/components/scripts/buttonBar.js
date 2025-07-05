@@ -1,3 +1,4 @@
+import { createProjectForm } from "../../features/projects/scripts/form";
 import { clearContent, initialLoad, userOpensProject } from "./html";
 
 const buttonBarEl = document.querySelector("#buttonBar");
@@ -31,6 +32,10 @@ const buttonBarEvents = function () {
     if (e.target.classList.contains("back-btn")) {
       initialLoad();
       userOpensProject();
+    }
+    if (e.target.classList.contains("new")) {
+      createProjectForm();
+      document.querySelector("dialog").showModal();
     }
   });
 };
