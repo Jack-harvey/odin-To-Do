@@ -30,7 +30,7 @@ export const initialLoad = function () {
 };
 
 export const userOpensProject = function () {
-  const content = document.querySelector(".project-card");
+  const content = document.querySelector(".project-card-area");
   content.addEventListener("click", (e) => {
     const projectId = e.target.closest("[data-id]").dataset.id;
     renderTodos(projectId);
