@@ -34,7 +34,7 @@ const buttonBarEvents = function () {
       userOpensProject();
     }
     if (e.target.classList.contains("new")) {
-      createProjectForm();
+      // createProjectForm();
       document.querySelector("dialog").showModal();
     }
   });

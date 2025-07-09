@@ -1,4 +1,7 @@
-import { createFormEventListener } from "../../../components/scripts/forms";
+import {
+  createFormEventListener,
+  createCloseFormEventListener,
+} from "../../../components/scripts/forms";
 import { clearContent } from "../../../components/scripts/html";
 
 const dialogEl = document.querySelector("dialog");
@@ -8,7 +11,7 @@ export const createProjectForm = function () {
   dialogEl.innerHTML = `
   <div class="new-project">
     <div>
-      <i class="fa-solid fa-rectangle-xmark"></i>
+      <i class="close-btn fa-solid fa-rectangle-xmark"></i>
     </div>
     <div>
       <form id="newProjectForm" method="dialog">
@@ -46,4 +49,5 @@ export const createProjectForm = function () {
   </div>
 `;
   createFormEventListener("#newProjectForm");
+  createCloseFormEventListener("#newProjectForm");
 };
