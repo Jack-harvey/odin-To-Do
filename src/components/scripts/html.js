@@ -29,6 +29,11 @@ export const initialLoad = function () {
   //set up event listeners
 };
 
+export const redrawProjects = function () {
+  clearContent(".content");
+  createProjectCards(getAllProjects());
+};
+
 export const userOpensProject = function () {
   const content = document.querySelector(".project-card-area");
   content.addEventListener("click", (e) => {
