@@ -1,6 +1,6 @@
 import { add } from "../../database/ls";
 import { Project } from "../../features/projects/scripts/project";
-import { redrawProjects } from "./html";
+import { redrawProjects, userOpensProject } from "./html";
 
 export const createFormEventListener = function (id) {
   const formEl = document.querySelector(id);
@@ -11,6 +11,7 @@ export const createFormEventListener = function (id) {
       createProjectFormPost();
       document.querySelector("dialog").close();
       redrawProjects();
+      userOpensProject();
       return;
     }
   });

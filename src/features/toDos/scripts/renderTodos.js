@@ -2,6 +2,7 @@ import { getListOfToDos, getProjectDetails, read, update } from "../../../databa
 import { clearContent, changeBannerText } from "../../../components/scripts/html";
 import { todo } from "./todo";
 import { buttonBar } from "../../../components/scripts/buttonBar";
+import { createTodoForm } from "./form";
 
 export const renderTodos = function (projectId) {
   clearContent(".content");
@@ -19,6 +20,7 @@ export const renderTodos = function (projectId) {
   changeBannerText(projectName, projectDescription);
 
   buttonBar("todo");
+  createTodoForm();
 
   toggleTodoCompletion();
 };
