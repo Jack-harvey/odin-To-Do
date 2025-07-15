@@ -1,5 +1,6 @@
 import { add } from "../../database/ls";
 import { Project } from "../../features/projects/scripts/project";
+import { todo } from "../../features/toDos/scripts/todo";
 import { redrawProjects, userOpensProject } from "./html";
 
 export const createFormEventListener = function (id) {
@@ -13,6 +14,11 @@ export const createFormEventListener = function (id) {
       redrawProjects();
       userOpensProject();
       return;
+    } else {
+      createTodoFormPost();
+      document.querySelector("dialog").close();
+      //redraw todos
+      //recreate listeners
     }
   });
 };
@@ -38,4 +44,15 @@ const createProjectFormPost = function () {
   const newProject = new Project(title, description, notes, color);
   console.log(newProject);
   add("projects", newProject);
+};
+
+const createTodoFormPost = function () {
+  const title = document.getElementsByName("title")[0].value;
+  const description = document.getElementsByName("description")[0].value;
+  const notes = document.getElementsByName("notes")[0].value;
+  const dueDate = document.getElementsByName("due-date")[0].value;
+  const projectId = document.querySelector(".todo-cards").dataset.projectId;
+
+  const newTodo = todo(title, false, description, notes, dueDate, projectId);
+  add("todos", newTodo);
 };

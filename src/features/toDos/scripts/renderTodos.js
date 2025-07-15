@@ -9,6 +9,7 @@ export const renderTodos = function (projectId) {
   const content = document.querySelector(".content");
   const todoCardSectionEl = document.createElement("div");
   todoCardSectionEl.classList.add("todo-cards");
+  todoCardSectionEl.dataset.projectId = projectId;
 
   const allTemplates = createTodoList(projectId);
   todoCardSectionEl.append(...allTemplates);
